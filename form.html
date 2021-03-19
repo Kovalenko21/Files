@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML-теги</title>
+  </head>
+  <body>
+    <!-- в action указывают адрес, на который будет отправляться форма -->
+    <form action="/">
+      <div>
+        <!-- label представляет собой подпись к элементу формы -->
+        <label for="question1">1. Какой тег применяется для параграфа?</label>
+        <!-- 
+          чтоб связать label и элемент формы, элементу присваивают ID (уникальный идентивикатор),
+          а лейблу - атрибут FOR с такам же значением
+        -->
+        <input type="text" id="question1" name="question1" />
+      </div>
+      <!-- 
+        чтоб объединить несколько полей в группу используют тег FIELDSET
+        заголовок группы указывают в теге LEGEND
+       -->
+      <fieldset>
+        <legend>2. Какой тег используют для создания списка?</legend>
+        <ul>
+          <li>
+            <!-- 
+              чтоб связать несколько RADIO инпутов их NAME должен быть одинаковым
+              это позволит сделать один выбор из нескольких вариантов
+             -->
+            <input
+              type="radio"
+              name="question2"
+              id="question2_1"
+              value="strong"
+            />
+            <!-- 
+              ID всё ещё должны быть РАЗНЫМИ, уникальными для всей страницы
+              LABEL так же привязывается к инпуту по NAME, 
+              это позволяет например ставить галочку просто нажимая на текст 
+            -->
+            <label for="question2_1">strong</label>
+          </li>
+          <li>
+            <!-- 
+              у каждого инпута должно быть указано VALUE 
+              так сервер будет знать, какой выбор мы сделали
+              НАПР. выбрав вариант UL в адресной строке вы увидите question2=ul
+              то же касается CHECKBOX
+            -->
+            <input type="radio" name="question2" id="question2_2" value="ul" />
+            <label for="question2_2">ul</label>
+          </li>
+          <li>
+            <!-- атрибутом CHECKED можно указать изначально выбранный вариант -->
+            <input
+              type="radio"
+              name="question2"
+              id="question2_3"
+              value="div"
+              checked
+            />
+            <label for="question2_3">div</label>
+          </li>
+        </ul>
+      </fieldset>
+      <fieldset>
+        <legend>3. Какие теги используют в таблицах?</legend>
+        <ul>
+          <li>
+            <!-- 
+              вместо ID и FOR для связывания INPUT и LABEL можно input поместить внутрь label
+              работать будет так же, как с for
+              не забываем о VALUE
+              тут выбрав несколько вариантов в адресной строке должно быть что-то похожее на
+              question3=table&question3=tr
+             -->
+            <label>
+              <input type="checkbox" name="question3" value="article" /> article
+            </label>
+          </li>
+          <li>
+            <input
+              type="checkbox"
+              name="question3"
+              id="question3_2"
+              value="table"
+            />
+            <label for="question3_2">table</label>
+          </li>
+          <li>
+            <!-- атрибут CHECKED работает так же как с RADIO-инпутом -->
+            <input
+              type="checkbox"
+              name="question3"
+              id="question3_3"
+              value="em"
+              checked
+            />
+            <label for="question3_3">em</label>
+          </li>
+          <li>
+            <input
+              type="checkbox"
+              name="question3"
+              id="question3_4"
+              value="tr"
+            />
+            <label for="question3_4">tr</label>
+          </li>
+        </ul>
+      </fieldset>
+      <label for="question4">4. Каким тегом можно сделать жирный шрифт?</label>
+      <!-- 
+        SELECT тоже используют для выбора одного из нескольких вариантов
+        варианты перечисляют используя OPTION, тоже указывая VALUE для каждого 
+      -->
+      <select name="question4" id="question4">
+        <option value="p">p</option>
+        <option value="b">Тег B</option>
+        <!-- атрибут SELECTED указывает опцию, выбранную изначально -->
+        <option value="div" selected>div</option>
+        <option value="span">span</option>
+      </select>
+      <br />
+      <!-- кнопка, которая отправляет форму -->
+      <button type="submit">Отправить</button>
+    </form>
+  </body>
+</html>
